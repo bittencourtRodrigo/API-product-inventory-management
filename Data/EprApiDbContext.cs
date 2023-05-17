@@ -10,7 +10,7 @@ namespace EprApi.Data
             optionsBuilder.UseSqlServer("Server=eprdorodrigo.database.windows.net;Database=eprdatabase;User Id=eprdorodrigo;Password=Qq-101010;");
         }
 
-        public DbSet<Product> Product { get; set; }
+        public DbSet<CatalogProductModel> Product { get; set; }
         public DbSet<Client> Client { get; set; }
     }
 }

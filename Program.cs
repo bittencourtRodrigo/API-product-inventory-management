@@ -1,6 +1,5 @@
 using EprApi.Data;
 using EprApi.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<EprApiDbContext>();
@@ -12,9 +11,9 @@ app.MapGet("v1/products", (EprApiDbContext context) =>
     return Results.Ok(data);
 });
 
-app.MapPost("v1/products", (EprApiDbContext context, Product model) =>
+app.MapPost("v1/products", (EprApiDbContext context, List<CatalogProductModel> model) =>
 {
-    context.Product.Add(model);
+    context.Product.AddRange(model);
     context.SaveChanges();
 });
 
